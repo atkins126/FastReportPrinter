@@ -18,7 +18,9 @@ Implementado na linguagem Delphi, utiliza o conceito de [fluent interface](https
 
 * Windows Forms
 * Windows Console
-* Windows Service
+* Windows Service *
+* IIS ISAPI[(Horse)](https://github.com/HashLoad/horse) *
+* IIS CGI[(Horse)](https://github.com/HashLoad/horse) *
 
 ## ⭕ Pré-requisito
 
@@ -138,8 +140,9 @@ end;
 **Observação**
 
 * Falta de memória pode gerar falha de impressão.
-* Impressão de documentos grandes pode ter demorar na resposta de sucesso da impressão.
-* Windows Service Application é necessário configurar "logon" usando uma conta administrativa para uma impressão com sucesso.
+* Impressão de documento grande pode ter demora na resposta de sucesso da impressão.
+* Windows Service Application é necessário configurar "logon" usando uma conta administrativa ou NT AUTHORITY\LocalService e ou NT AUTHORITY\NetworkService para uma impressão com sucesso.
+* IIS(ISAPI/CGI) devido a um [bug](https://blogs.stonesteps.ca/1/p/44) quando app 32 bits e Windows 64 bits não é possível imprimir, solução, compilar app 64 bits e com permissão usando uma conta NT AUTHORITY\LocalService e ou NT AUTHORITY\NetworkService.
 
 **Exemplo compilado**
 
@@ -149,7 +152,14 @@ end;
 Download: [Demo.zip](https://github.com/antoniojmsjr/FastReportPrinter/files/9245293/Demo.zip)
 
 
-https://user-images.githubusercontent.com/20980984/182460168-8a01a10a-cc06-45af-985f-37d91745ab6f.mp4
+
+https://user-images.githubusercontent.com/20980984/183212903-ec64169a-f1f5-4c21-8c46-bc3e5a8c8078.mp4
+
+
+
+https://user-images.githubusercontent.com/20980984/183213069-68c4ca35-4804-481e-854e-e7d1ae303686.mp4
+
+
 
 **Teste de desempenho para aplicações web usando [JMeter](https://jmeter.apache.org/):**
 
